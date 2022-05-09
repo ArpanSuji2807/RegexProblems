@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ValidationTests
 {
-    public class LastNameTest
+    public class PasswordTest
     {
         [Test]
-        public void Last_NameTest()
+        public void Password_Test()
         {
             Validation validation = new Validation();
-            bool name = validation.LastName_Validation("Suji");
-            Assert.IsTrue(name);
+            bool password = validation.Password_Validation("abcd1234545");
+            Assert.IsTrue(password);
         }
     }
 }
