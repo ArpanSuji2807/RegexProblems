@@ -6,6 +6,7 @@ namespace RegexValidation
     {
         const string first_Name = "^[A-Z]{1}[a-z]$";
         const string mobileNumber = "^[6-9]{1}[0-9]{9}$";
+        const string emailID = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
         public bool FirstName_Validation(string name)
         {
             if (Regex.IsMatch(name,first_Name))
@@ -27,6 +28,14 @@ namespace RegexValidation
             if (Regex.IsMatch(number,mobileNumber))
             {
                 Console.WriteLine("{0} is valid number", number);
+            }
+            return true;
+        }
+        public bool Email_Validation(string email)
+        {
+            if (Regex.IsMatch(email,emailID))
+            {
+                Console.WriteLine("{0} is valid email ID", email);
             }
             return true;
         }

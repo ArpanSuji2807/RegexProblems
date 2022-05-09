@@ -11,7 +11,7 @@ namespace ValidationTests
     public class NumberTest
     {
         [Test]
-        public void FirstNameTest()
+        public void Number_Test()
         {
             Validation validation = new Validation();
             bool number = validation.MobileNumber_Validation("9456455566");
