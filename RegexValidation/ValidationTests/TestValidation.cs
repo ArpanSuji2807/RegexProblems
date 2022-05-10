@@ -1,0 +1,49 @@
+﻿using NUnit.Framework;
+using RegexValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ValidationTests
+{
+    public class TestValidation
+    {
+        [Test]
+        public void FirstNameTest()
+        {
+            Validation validation = new Validation();
+            bool name = validation.FirstName_Validation("Arpan");
+            Assert.IsTrue(name);
+        }
+        [Test]
+        public void Last_NameTest()
+        {
+            Validation validation = new Validation();
+            bool name = validation.LastName_Validation("Suji");
+            Assert.IsTrue(name);
+        }
+        [Test]
+        public void Number_Test()
+        {
+            Validation validation = new Validation();
+            bool number = validation.MobileNumber_Validation("9456455566");
+            Assert.IsTrue(number);
+        }
+        [Test]
+        public void EmailTest()
+        {
+            Validation validation = new Validation();
+            bool email = validation.Email_Validation("abc@gmail.com");
+            Assert.IsTrue(email);
+        }
+        [Test]
+        public void Password_Test()
+        {
+            Validation validation = new Validation();
+            bool password = validation.Password_Validation("abcd1234545");
+            Assert.IsTrue(password);
+        }
+    }
+}
