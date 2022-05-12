@@ -45,5 +45,12 @@ namespace ValidationTests
             bool password = validation.Password_Validation("abcd1234545");
             Assert.IsTrue(password);
         }
+        [Test]
+        public void PasswordTest_WithOneUpperCase()
+        {
+            Validation validation = new Validation();
+            bool password = validation.PasswordValidation_WithOneUpperCase("Arabc");
+            Assert.IsTrue(password);
+        }
     }
 }
