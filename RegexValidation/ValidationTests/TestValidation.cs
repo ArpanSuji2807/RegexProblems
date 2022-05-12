@@ -11,63 +11,63 @@ namespace ValidationTests
     public class TestValidation
     {
         [Test]
-        public void FirstNameTest()
+        public void GivenFirstNameAsInput_WhenTestValidation_ShouldReturnFirstName()
         {
             Validation validation = new Validation();
             bool name = validation.FirstName_Validation("Arpan");
             Assert.IsTrue(name);
         }
         [Test]
-        public void Last_NameTest()
+        public void GivenLastNameAsInput_WhenTestValidation_ShouldReturnLastName()
         {
             Validation validation = new Validation();
             bool name = validation.LastName_Validation("Suji");
             Assert.IsTrue(name);
         }
         [Test]
-        public void Number_Test()
+        public void GivenPhoneNumberAsInput_WhenTestValidation_ShouldReturnPhoneNumber()
         {
             Validation validation = new Validation();
             bool number = validation.MobileNumber_Validation("9456455566");
             Assert.IsTrue(number);
         }
         [Test]
-        public void EmailTest()
+        public void GivenEmailAsInput_WhenTestValidation_ShouldReturnEmail()
         {
             Validation validation = new Validation();
             bool email = validation.Email_Validation("abc@gmail.com");
             Assert.IsTrue(email);
         }
         [Test]
-        public void Password_Test()
+        public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPassword()
         {
             Validation validation = new Validation();
             bool password = validation.Password_Validation("abcd1234545");
             Assert.IsTrue(password);
         }
         [Test]
-        public void PasswordTest_WithOneUpperCase()
+        public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneUpperCase()
         {
             Validation validation = new Validation();
             bool password = validation.PasswordValidation_WithOneUpperCase("Arabc");
             Assert.IsTrue(password);
         }
         [Test]
-        public void PasswordTest_WithOneNumericNumber()
+        public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneNumericValue()
         {
             Validation validation = new Validation();
-            bool password = validation.PasswordValidation_WithOneNumericNumber("Ar123");
-            Assert.IsTrue(password);
+            bool password1 = validation.PasswordValidation_WithOneNumericNumber("Arr1236");
+            Assert.IsTrue(password1);
         }
         [Test]
-        public void PasswordTest_WithOneSpecialCharacter()
+        public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneSpecialCharacter()
         {
             Validation validation = new Validation();
-            bool password = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
-            Assert.IsTrue(password);
+            bool password2 = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
+            Assert.IsTrue(password2);
         }
         [Test]
-        public void AllEmailSamplesTest()
+        public void GivenEmailAsInput_WhenTestValidation_ShouldReturnAllEmailSamples()
         {
             Validation validation = new Validation();
             bool email = validation.AllEmailSamplesValidation("abc.100@abc.com.au");
