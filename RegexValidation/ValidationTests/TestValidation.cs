@@ -59,5 +59,12 @@ namespace ValidationTests
             bool password = validation.PasswordValidation_WithOneNumericNumber("Ar123");
             Assert.IsTrue(password);
         }
+        [Test]
+        public void PasswordTest_WithOneSpecialCharacter()
+        {
+            Validation validation = new Validation();
+            bool password = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
+            Assert.IsTrue(password);
+        }
     }
 }

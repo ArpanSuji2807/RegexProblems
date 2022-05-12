@@ -10,6 +10,7 @@ namespace RegexValidation
         const string password = "^[a-zA-z0-9]{8,}";
         const string passwordWithOneUpperCase = "^[A-Z]{1, }[a-z]{8, }$";
         const string passwordWithOneNumericNumber = "^[A-Z]{1, }[a-z]{8, }[0-9]{1, }$";
+        const string passwordWithOneSpecialCharacter = "^[A-Z]{1, }[a-z]{8, }[0-9]{1, }[@$#!*&^%]{1}$";
         public bool FirstName_Validation(string name)
         {
             if (Regex.IsMatch(name,first_Name))
@@ -63,6 +64,14 @@ namespace RegexValidation
             if (Regex.IsMatch(paswrd,passwordWithOneNumericNumber))
             {
                 Console.WriteLine("{0} is a valid password", paswrd);
+            }
+            return true;
+        }
+        public bool PasswordValidation_WithOneSpecialCharacter(string paswrrd)
+        {
+            if (Regex.IsMatch(paswrrd, passwordWithOneSpecialCharacter))
+            {
+                Console.WriteLine("{0} is a valid password", paswrrd);
             }
             return true;
         }
