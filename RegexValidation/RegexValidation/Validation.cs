@@ -6,11 +6,12 @@ namespace RegexValidation
     {
         const string first_Name = "^[A-Z]{1}[a-z]$";
         const string mobileNumber = "^[6-9]{1}[0-9]{9}$";
-        const string emailID = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
+        const string emailID = "^[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
         const string password = "^[a-zA-z0-9]{8,}";
         const string passwordWithOneUpperCase = "^[A-Z]{1, }[a-z]{8, }$";
         const string passwordWithOneNumericNumber = "^[A-Z]{1, }[a-z]{8, }[0-9]{1, }$";
         const string passwordWithOneSpecialCharacter = "^[A-Z]{1, }[a-z]{8, }[0-9]{1, }[@$#!*&^%]{1}$";
+        const string allEmailSmaples = "^[a-z]+[.+-]{0,1}[0-9]{1, }+[@][a-z0-1][.][a-z]+([.][a-z]{2, }){0,1}$";
         public bool FirstName_Validation(string name)
         {
             if (Regex.IsMatch(name,first_Name))
@@ -72,6 +73,14 @@ namespace RegexValidation
             if (Regex.IsMatch(paswrrd, passwordWithOneSpecialCharacter))
             {
                 Console.WriteLine("{0} is a valid password", paswrrd);
+            }
+            return true;
+        }
+        public bool AllEmailSamplesValidation(string email)
+        {
+            if (Regex.IsMatch(email, allEmailSmaples))
+            {
+                Console.WriteLine("{0} is a valid password", email);
             }
             return true;
         }

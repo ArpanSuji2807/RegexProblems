@@ -66,5 +66,12 @@ namespace ValidationTests
             bool password = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
             Assert.IsTrue(password);
         }
+        [Test]
+        public void AllEmailSamplesTest()
+        {
+            Validation validation = new Validation();
+            bool email = validation.AllEmailSamplesValidation("abc.100@abc.com.au");
+            Assert.IsTrue(email);
+        }
     }
 }
