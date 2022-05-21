@@ -4,6 +4,7 @@ namespace RegexValidation
 {
     public class Validation
     {
+        List<string> list = new List<string>();
         const string first_Name = "^[A-Z]{1}[a-z]$";
         const string mobileNumber = "^[6-9]{1}[0-9]{9}$";
         const string emailID = "^[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
@@ -14,7 +15,7 @@ namespace RegexValidation
         const string allEmailSmaples = "^[a-z]+[.+-]{0,1}[0-9]{1, }+[@][a-z0-1][.][a-z]+([.][a-z]{2, }){0,1}$";
         public bool FirstName_Validation(string name)
         {
-            if (Regex.IsMatch(name,first_Name))
+            if (Regex.IsMatch(name, first_Name))
             {
                 Console.WriteLine("{0} is a valid first name", name);
             }
@@ -76,11 +77,22 @@ namespace RegexValidation
             }
             return true;
         }
-        public bool AllEmailSamplesValidation(string email)
+        public bool AllEmailSamplesValidation()
         {
-            if (Regex.IsMatch(email, allEmailSmaples))
+            list.Add("abc.100@abc.com.au");
+            list.Add("abc+100@gmail.com");
+            list.Add("abc@yahoo.com");
+            list.Add("abc-100@yahoo.com");
+            list.Add("abc111@abc.com");
+            list.Add("abc.100@abc.com.au");
+            list.Add("abc-100@abc.net");
+            list.Add("abc@1.com");
+            foreach (var data in list)
             {
-                Console.WriteLine("{0} is a valid password", email);
+                if (Regex.IsMatch(data, allEmailSmaples))
+                {
+                    Console.WriteLine("{0} is a valid password", data);
+                }
             }
             return true;
         }

@@ -70,7 +70,7 @@ namespace ValidationTests
         public void GivenEmailAsInput_WhenTestValidation_ShouldReturnAllEmailSamples()
         {
             Validation validation = new Validation();
-            bool email = validation.AllEmailSamplesValidation("abc.100@abc.com.au");
+            bool email = validation.AllEmailSamplesValidation();
             Assert.IsTrue(email);
         }
     }
