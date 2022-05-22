@@ -73,5 +73,15 @@ namespace ValidationTests
             bool email = validation.AllEmailSamplesValidation();
             Assert.IsTrue(email);
         }
+        [Test]
+        [TestCase("abc.100@abc.com.au")]
+        [TestCase("abc+100@gmail.com")]
+        [TestCase("abc@yahoo.com")]
+        public void GivenEmailAsInput_WhenParameterizedTestValidation_ShouldReturnAllEmailSamples(string email)
+        {
+            Validation validation=new Validation();
+            bool actual=validation.MultipleEmailValidationParameterized(email);
+            Assert.IsTrue(actual,email);
+        }
     }
 }

@@ -96,5 +96,18 @@ namespace RegexValidation
             }
             return true;
         }
+        public bool MultipleEmailValidationParameterized(string email)
+        {
+            if (Regex.IsMatch(email,allEmailSmaples))
+            {
+                Console.WriteLine("Email is matched");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Email did not matched");
+                return false;
+            }
+        }
     }
 }
