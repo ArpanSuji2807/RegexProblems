@@ -15,67 +15,155 @@ namespace RegexValidation
         const string allEmailSmaples = "^[a-z]+[.+-]{0,1}[0-9]{1, }+[@][a-z0-1][.][a-z]+([.][a-z]{2, }){0,1}$";
         public bool FirstName_Validation(string name)
         {
-            if (Regex.IsMatch(name, first_Name))
+            try
             {
-                Console.WriteLine("{0} is a valid first name", name);
+                if(first_Name!=name)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.FIRSTNAME_NOT_VALID, "First name is not valid");
+                }
+                if (Regex.IsMatch(name, first_Name))
+                {
+                    Console.WriteLine("{0} is a valid first name", name);
+                }
+                return true;
             }
-            return true;
+            catch(UserCustomException ex)
+            {
+                return ex.Message == "First name is not valid";
+            }
         }
         public bool LastName_Validation(string last_Name)
         {
-            if (Regex.IsMatch(last_Name,first_Name))
+            try
             {
-                Console.WriteLine("{0} is valid last name", last_Name);
+                if(first_Name!= last_Name)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.LASTNAME_NOT_VALID, "Last name is not valid");
+                }
+                if (Regex.IsMatch(last_Name, first_Name))
+                {
+                    Console.WriteLine("{0} is valid last name", last_Name);
+                }
+                return true;
             }
-            return true;
+            catch (UserCustomException ex)
+            {
+                return ex.Message == "Last name is not valid";
+            }
         }
         public bool MobileNumber_Validation(string number)
         {
-            if (Regex.IsMatch(number,mobileNumber))
+            try
             {
-                Console.WriteLine("{0} is a valid number", number);
+                if (mobileNumber!= number)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.MOBILENUMBER_NOT_VALID, "Mobile number is not valid");
+                }
+                if (Regex.IsMatch(number, mobileNumber))
+                {
+                    Console.WriteLine("{0} is a valid number", number);
+                }
+                return true;
             }
-            return true;
+            catch(UserCustomException ex)
+            {
+                return ex.Message == "Mobile number is not valid";
+            }
         }
         public bool Email_Validation(string email)
         {
-            if (Regex.IsMatch(email,emailID))
+            try
             {
-                Console.WriteLine("{0} is a valid email ID", email);
+                if(emailID!= email)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.EMAILID_NOT_VALID, "Email is not valid");
+                }
+                if (Regex.IsMatch(email, emailID))
+                {
+                    Console.WriteLine("{0} is a valid email ID", email);
+                }
+                return true;
             }
-            return true;
+            catch(UserCustomException ex)
+            {
+                return ex.Message == "Email is not valid";
+            }
         }
         public bool Password_Validation(string pswd)
         {
-            if (Regex.IsMatch(pswd, password))
+            try
             {
-                Console.WriteLine("{0} is a valid password", pswd);
+                if(password!= pswd)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.PASSWORD_NOT_VALID, "Password is not valid");
+                }
+                if (Regex.IsMatch(pswd, password))
+                {
+                    Console.WriteLine("{0} is a valid password", pswd);
+                }
+                return true;
             }
-            return true;
+            catch(UserCustomException ex)
+            {
+                return ex.Message == "Password is not valid";
+            }
         }
         public bool PasswordValidation_WithOneUpperCase(string paswd)
         {
-            if (Regex.IsMatch(paswd,passwordWithOneUpperCase))
+            try
             {
-                Console.WriteLine("{0} is a valid password",paswd);
+                if(passwordWithOneUpperCase!= paswd)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.PASSWORD_NOT_VALID, "Password is not valid");
+                }
+                if (Regex.IsMatch(paswd, passwordWithOneUpperCase))
+                {
+                    Console.WriteLine("{0} is a valid password", paswd);
+                }
+                return true;
             }
-            return true;
+            catch (UserCustomException ex)
+            {
+                return ex.Message == "Password is not valid";
+            }
         }
         public bool PasswordValidation_WithOneNumericNumber(string paswrd)
         {
-            if (Regex.IsMatch(paswrd,passwordWithOneNumericNumber))
+            try
             {
-                Console.WriteLine("{0} is a valid password", paswrd);
+                if (passwordWithOneNumericNumber != paswrd)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.PASSWORD_NOT_VALID, "Password is not valid");
+                }
+                if (Regex.IsMatch(paswrd, passwordWithOneNumericNumber))
+                {
+                    Console.WriteLine("{0} is a valid password", paswrd);
+                }
+                return true;
             }
-            return true;
+            catch (UserCustomException ex)
+            {
+                return ex.Message == "Password is not valid";
+            }
         }
         public bool PasswordValidation_WithOneSpecialCharacter(string paswrrd)
         {
-            if (Regex.IsMatch(paswrrd, passwordWithOneSpecialCharacter))
+            try
             {
-                Console.WriteLine("{0} is a valid password", paswrrd);
+                if (passwordWithOneSpecialCharacter != paswrrd)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.PASSWORD_NOT_VALID, "Password is not valid");
+                }
+                if (Regex.IsMatch(paswrrd, passwordWithOneSpecialCharacter))
+                {
+                    Console.WriteLine("{0} is a valid password", paswrrd);
+                }
+                return true;
             }
-            return true;
+            catch (UserCustomException ex)
+            {
+                return ex.Message == "Password is not valid";
+            }
         }
         public bool AllEmailSamplesValidation()
         {
@@ -87,26 +175,44 @@ namespace RegexValidation
             list.Add("abc.100@abc.com.au");
             list.Add("abc-100@abc.net");
             list.Add("abc@1.com");
-            foreach (var data in list)
+            try
             {
-                if (Regex.IsMatch(data, allEmailSmaples))
+                foreach (var data in list)
                 {
-                    Console.WriteLine("{0} is a valid password", data);
+                    if (data != allEmailSmaples)
+                    {
+                        throw new UserCustomException(UserCustomException.CustomException.EMAILID_NOT_VALID, "Email is not valid");
+                    }
+                    if (Regex.IsMatch(data, allEmailSmaples))
+                    {
+                        Console.WriteLine("{0} is a valid password", data);
+                    }
+                    return true;
                 }
+            }
+            catch(UserCustomException ex)
+            {
+                return ex.Message == "Email is not valid";
             }
             return true;
         }
         public bool MultipleEmailValidationParameterized(string email)
         {
-            if (Regex.IsMatch(email,allEmailSmaples))
+            try
             {
-                Console.WriteLine("Email is matched");
+                if(allEmailSmaples!=email)
+                {
+                    throw new UserCustomException(UserCustomException.CustomException.EMAILID_NOT_VALID, "Email is not valid");
+                }
+                if (Regex.IsMatch(email, allEmailSmaples))
+                {
+                    Console.WriteLine("Email is matched");
+                }
                 return true;
             }
-            else
+            catch (UserCustomException ex)
             {
-                Console.WriteLine("Email did not matched");
-                return false;
+                return ex.Message == "Email is not valid";
             }
         }
     }

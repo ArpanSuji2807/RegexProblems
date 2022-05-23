@@ -13,65 +13,119 @@ namespace ValidationTests
         [Test]
         public void GivenFirstNameAsInput_WhenTestValidation_ShouldReturnFirstName()
         {
-            Validation validation = new Validation();
-            bool name = validation.FirstName_Validation("Arpan");
-            Assert.IsTrue(name);
+            try
+            {
+                Validation validation = new Validation();
+                bool name = validation.FirstName_Validation("Arpan");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "First name is not valid");
+            }
         }
         [Test]
         public void GivenLastNameAsInput_WhenTestValidation_ShouldReturnLastName()
         {
-            Validation validation = new Validation();
-            bool name = validation.LastName_Validation("Suji");
-            Assert.IsTrue(name);
+            try
+            {
+                Validation validation = new Validation();
+                bool name = validation.LastName_Validation("Suji");
+            }
+            catch (UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Last name is not valid");
+            }
         }
         [Test]
         public void GivenPhoneNumberAsInput_WhenTestValidation_ShouldReturnPhoneNumber()
         {
-            Validation validation = new Validation();
-            bool number = validation.MobileNumber_Validation("9456455566");
-            Assert.IsTrue(number);
+            try
+            {
+                Validation validation = new Validation();
+                bool number = validation.MobileNumber_Validation("9456455566");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Mobile number is not valid");
+            }
         }
         [Test]
         public void GivenEmailAsInput_WhenTestValidation_ShouldReturnEmail()
         {
-            Validation validation = new Validation();
-            bool email = validation.Email_Validation("abc@gmail.com");
-            Assert.IsTrue(email);
+            try
+            {
+                Validation validation = new Validation();
+                bool email = validation.Email_Validation("abc@gmail.com");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Email is not valid");
+            }
         }
         [Test]
         public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPassword()
         {
-            Validation validation = new Validation();
-            bool password = validation.Password_Validation("abcd1234545");
-            Assert.IsTrue(password);
+            try
+            {
+                Validation validation = new Validation();
+                bool password = validation.Password_Validation("abcd1234545");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Password is not valid");
+            }
         }
         [Test]
         public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneUpperCase()
         {
-            Validation validation = new Validation();
-            bool password = validation.PasswordValidation_WithOneUpperCase("Arabc");
-            Assert.IsTrue(password);
+            try
+            {
+                Validation validation = new Validation();
+                bool password = validation.PasswordValidation_WithOneUpperCase("Arabc");
+            }
+            catch (UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Password is not valid");
+            }
         }
         [Test]
         public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneNumericValue()
         {
-            Validation validation = new Validation();
-            bool password1 = validation.PasswordValidation_WithOneNumericNumber("Arr1236");
-            Assert.IsTrue(password1);
+            try
+            {
+                Validation validation = new Validation();
+                bool password1 = validation.PasswordValidation_WithOneNumericNumber("Arr1236");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Password is not valid");
+            }
         }
         [Test]
         public void GivenPasswordAsInput_WhenTestValidation_ShouldReturnPasswordWithOneSpecialCharacter()
         {
-            Validation validation = new Validation();
-            bool password2 = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
-            Assert.IsTrue(password2);
+            try
+            {
+                Validation validation = new Validation();
+                bool password2 = validation.PasswordValidation_WithOneSpecialCharacter("Ar28@");
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Password is not valid");
+            }
         }
         [Test]
         public void GivenEmailAsInput_WhenTestValidation_ShouldReturnAllEmailSamples()
         {
-            Validation validation = new Validation();
-            bool email = validation.AllEmailSamplesValidation();
-            Assert.IsTrue(email);
+            try
+            {
+                Validation validation = new Validation();
+                bool email = validation.AllEmailSamplesValidation();
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Email is not valid");
+            }
         }
         [Test]
         [TestCase("abc.100@abc.com.au")]
@@ -79,9 +133,15 @@ namespace ValidationTests
         [TestCase("abc@yahoo.com")]
         public void GivenEmailAsInput_WhenParameterizedTestValidation_ShouldReturnAllEmailSamples(string email)
         {
-            Validation validation=new Validation();
-            bool actual=validation.MultipleEmailValidationParameterized(email);
-            Assert.IsTrue(actual,email);
+            try
+            {
+                Validation validation = new Validation();
+                bool actual = validation.MultipleEmailValidationParameterized(email);
+            }
+            catch(UserCustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "Email is not valid");
+            }
         }
     }
 }
