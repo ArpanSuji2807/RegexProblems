@@ -115,19 +115,6 @@ namespace ValidationTests
             }
         }
         [Test]
-        public void GivenEmailAsInput_WhenTestValidation_ShouldReturnAllEmailSamples()
-        {
-            try
-            {
-                Validation validation = new Validation();
-                bool email = validation.AllEmailSamplesValidation();
-            }
-            catch(UserCustomException ex)
-            {
-                Assert.AreEqual(ex.Message, "Email is not valid");
-            }
-        }
-        [Test]
         [TestCase("abc.100@abc.com.au")]
         [TestCase("abc+100@gmail.com")]
         [TestCase("abc@yahoo.com")]
